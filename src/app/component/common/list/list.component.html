@@ -1,0 +1,52 @@
+<p-table
+  [columns]="column"
+  [value]="data"
+  [rowHover]="true"
+  [tableStyle]="{ 'min-width': '50rem' }"
+  *ngIf="state == 'idle'; else loading"
+>
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns">
+        {{ col.name }}
+      </th>
+      <th>action</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr style="cursor: pointer">
+      <td *ngFor="let col of columns">
+        {{ col.selector(rowData) }}
+      </td>
+      <td>
+          <span *ngIf="edit">
+            <app-action-button icon="pi pi-pencil" [onClick]="funcEdit ? funcEdit.bind(this,rowData) : log" severity="primary"/>
+          </span>{{ ' ' }}
+        <span *ngIf="trash">
+            <app-action-button icon="pi pi-trash" [onClick]="funcTrash ? funcTrash.bind(this,rowData, rowData?.wording) : log" severity="danger"/>
+          </span>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<ng-template #loading>
+  <div *ngFor="let skeleton of skeletons">
+    <p-table
+      [columns]="column"
+      [value]="skeletons"
+      [rowHover]="true"
+      [tableStyle]="{ 'min-width': '50rem' }"
+    >
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">
+            <p-skeleton width="100px"></p-skeleton>
+          </th>
+          <th>
+            <p-skeleton width="100px"></p-skeleton>
+          </th>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</ng-template>

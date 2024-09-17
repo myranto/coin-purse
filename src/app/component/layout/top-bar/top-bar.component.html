@@ -1,0 +1,17 @@
+<p-toolbar [style]="getStyle()">
+  <ng-template pTemplate="start">
+    <p-button
+      icon="pi pi-bars"
+      (onClick)="sidebarVisible()"
+      [text]="true"
+    />
+    <p>Session Du xxx </p>
+  </ng-template>
+  <ng-template pTemplate="end">
+    <p-button icon="pi pi-sign-out" severity="danger" [text]="true" />
+  </ng-template>
+</p-toolbar>
+<div class="breadcrumb" [style]="getStyle()">
+<!--  <p-breadcrumb class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>-->
+  <app-bread-crumb></app-bread-crumb>
+</div>

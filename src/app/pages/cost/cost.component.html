@@ -1,0 +1,16 @@
+<p-card>
+  <h1>Vos sorties d'argent</h1>
+  <p-button label="Ajouter une dépense" (onClick)="showAddElement()" icon="pi pi-plus" />
+  <br>
+  <br>
+  <app-list
+    header="dépense"
+    [data]="models"
+    [column]="column"
+    [state]="state"
+    [edit]="true"
+    [trash]="true"
+    [funcEdit]="showUpdateElement.bind(this)"
+    [funcTrash]="deleteElement.bind(this)"
+  />
+</p-card>

@@ -1,0 +1,27 @@
+<form (submit)="onSubmit()" [formGroup]="form" class="form">
+  <div class="field">
+    <label class="block" for="description">Description</label>
+    <input formControlName="description" id="description" pInputText required/>
+    <small id="description-help">La description est obligatoire</small>
+  </div>
+  <div class="field">
+    <label class="block" for="value">Valeur en Ariary</label>
+    <input pInputText required type="number" step="0.01" id="value" formControlName="value" />
+    <small id="value-help">La valeur est obligatoire</small>
+  </div>
+  <div class="field">
+    <p-dropdown [options]="list" [style]="{width:'100%'}" formControlName="tcost_id" id="tcost_id"
+                optionLabel="wording" optionValue="id"
+                placeholder="Choisir un type de dépense" />
+  </div>
+  <div class="field">
+    <label class="block" for="date">Date release</label>
+    <p-calendar formControlName="date_release" id="date" dateFormat="dd/mm/yy" [touchUI]="true" [readonlyInput]="true" appendTo="body" />
+  </div>
+  <div class="form-button">
+    <p-button (onClick)="onCancel()" class="button" icon="pi pi-times" label="Annuler" severity="danger"
+              type="button"/>
+    <p-button [loading]="state === 'loading'" class="button" icon="pi pi-check" label="Valider" severity="success"
+              type="submit"/>
+  </div>
+</form>

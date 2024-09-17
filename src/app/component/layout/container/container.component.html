@@ -1,0 +1,5 @@
+<app-top-bar [sidebarVisible]="onClick.bind(this)" [sidebar]="sidebarVisible" />
+<app-sidebar [sidebarVisible]="sidebarVisible" [onClickP]="onClick.bind(this)" />
+<div class="main" [style]="{'width': sidebarVisible ? 'calc(100% - 300px)' : '100%', backgroundColor: 'white', position: 'absolute', right: '0' }">
+    <router-outlet></router-outlet>
+</div>

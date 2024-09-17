@@ -1,0 +1,14 @@
+<p-card>
+  <h1>Vos entré d'argent</h1>
+  <p-button label="Ajouter un crédit" (onClick)="showAddElement()" icon="pi pi-plus" />
+  <app-list
+    header="Crédit"
+    [data]="models"
+    [column]="column"
+    [state]="state"
+    [edit]="true"
+    [trash]="true"
+    [funcEdit]="showUpdateElement.bind(this)"
+    [funcTrash]="deleteElement.bind(this)"
+  />
+</p-card>

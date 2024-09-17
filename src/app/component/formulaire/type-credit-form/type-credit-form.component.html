@@ -1,0 +1,13 @@
+<form (submit)="onSubmit()" [formGroup]="form" class="form">
+  <div class="field">
+    <label class="block" for="wording">Label</label>
+    <input formControlName="wording" id="wording" pInputText required/>
+    <small id="wording-help">Le label est obligatoire</small>
+  </div>
+  <div class="form-button">
+    <p-button (onClick)="onCancel()" class="button" icon="pi pi-times" label="Annuler" severity="danger"
+              type="button"/>
+    <p-button [loading]="state === 'loading'" class="button" icon="pi pi-check" label="Valider" severity="success"
+              type="submit"/>
+  </div>
+</form>

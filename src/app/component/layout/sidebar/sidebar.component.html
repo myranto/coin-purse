@@ -1,0 +1,20 @@
+<p-sidebar
+  [(visible)]="sidebarVisible"
+  [modal]="false"
+  (onHide)="onClickP()"
+  [showCloseIcon]="false"
+>
+  <ng-template pTemplate="header">
+    <i class="pi pi-user" style="font-size: 2.5rem"></i>
+  </ng-template>
+  <ng-template pTemplate="body">
+    <p-menu
+      [model]="items"
+      [style]="{
+        width: '100%',
+        border: 'none'
+      }"
+      [popup]="false"
+    ></p-menu>
+  </ng-template>
+</p-sidebar>

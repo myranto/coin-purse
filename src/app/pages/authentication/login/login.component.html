@@ -1,0 +1,66 @@
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+  <p-card [style]="{ width: '100vh', 'justify-content':'center', 'align-items':'center', 'display':'flex' }">
+    <form class="form" style="display: flex; flex-direction: column; align-items: center;" [formGroup]="form">
+      <img alt="myranto" src="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" width="100"/>
+      <p-tabView (onChange)="changeMode($event)">
+        <p-tabPanel header="Connexion">
+          <br>
+          <div class="field" style="width:100%;">
+            <p-floatLabel>
+              <input id="username" formControlName="mail" type="text" pInputText style="width:100%;"/>
+              <label for="username">E-mail</label>
+            </p-floatLabel>
+          </div>
+          <br>
+          <div class="field" style="width:100%;">
+            <p-floatLabel>
+              <input id="password" formControlName="password" type="password" pInputText style="width:100%;"/>
+              <label for="password">Mot de passe</label>
+            </p-floatLabel>
+          </div>
+          <br>
+          <p-button label="Se connecter" (onClick)="onSubmit()" [loading]="state === 'loading'"
+                    [style]="{width: '50vh'}" [raised]="true"/>
+        </p-tabPanel>
+        <p-tabPanel header="Inscription">
+          <br>
+          <div class="field" style="width:100%;">
+            <p-floatLabel>
+              <input id="name" formControlName="name" required type="text" pInputText style="width:100%;"/>
+              <label for="username">Nom</label>
+            </p-floatLabel>
+          </div>
+          <br>
+          <div class="field" style="width:100%;">
+            <p-floatLabel>
+              <input id="mail" formControlName="email" required type="text" pInputText style="width:100%;"/>
+              <label for="mail">E-mail</label>
+            </p-floatLabel>
+          </div>
+          <br>
+          <div class="field" style="width:100%;">
+<!--            <p-floatLabel>-->
+<!--                <p-password formControlName="mdp" [style]="{width:'50vh'}" ></p-password>-->
+<!--                <label for="password">Password</label>-->
+<!--            </p-floatLabel>-->
+            <p-floatLabel>
+              <input id="mdp" type="password" required formControlName="mdp" pInputText style="width:100%;"/>
+              <label for="mdp">Mot de passe</label>
+            </p-floatLabel>
+          </div>
+          <br>
+          <div class="field" style="width:100%;">
+            <p-floatLabel>
+              <input id="mdp1" type="password" required formControlName="mdp1" pInputText style="width:100%;"/>
+              <label for="mdp1">Retaper mot de passe</label>
+            </p-floatLabel>
+          </div>
+          <br>
+          <p-button [loading]="state === 'loading'" (onClick)="onSubmit()" label="S'inscrire" [style]="{width: '50vh'}"
+                    [raised]="true"/>
+        </p-tabPanel>
+      </p-tabView>
+    </form>
+  </p-card>
+</div>
+
